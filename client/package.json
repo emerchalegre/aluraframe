@@ -1,17 +1,21 @@
 {
-    "name": "aluraframe",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "babel js/app-es6 -d js/app --source-maps",
-        "watch": "babel js/app-es6 -d js/app --source-maps --watch"
-    },
-    "author": "Emerson",
-    "license": "ISC",
-    "devDependencies": {
-        "babel-cli": "^6.23.0",
-        "babel-preset-env": "^1.1.8"
-    }
+  "name": "aluraframe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel js/app-es6 -d js/app --source-maps",
+    "watch": "babel js/app-es6 -d js/app --source-maps --watch"
+  },
+  "author": "Emerson",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-plugin-transform-es2015-modules-systemjs": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0"
+  },
+  "dependencies": {
+    "systemjs": "^0.20.7"
+  }
 }

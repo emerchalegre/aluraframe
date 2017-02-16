@@ -1,4 +1,6 @@
-class NegociacaoDao {
+import { Negociacao } from '../models/Negociacao'
+
+export class NegociacaoDao {
 
     constructor(connection) {
         this._connection = connection
@@ -26,7 +28,6 @@ class NegociacaoDao {
     listarTodos() {
 
         return new Promise((resolve, reject) => {
-            console.log('teste')
             let cursor = this
                 ._connection
                 .transaction([this._store], 'readwrite')
@@ -36,10 +37,11 @@ class NegociacaoDao {
             let negociacoes = []
 
             cursor.onsuccess = e => {
-                var cursor = e.target.result;
-                if (cursor) {
-                    negociacoes.push(cursor.value);
-                    cursor.continue();
+                let atual = e.target.result
+                if (atual) {
+                    let dado = atual.value
+                    negociacoes.push(new Negociacao(dado._data, dado._quantidade, dado._valor))
+                    atual.continue();
                 } else {
                     resolve(negociacoes);
                 }

@@ -1,4 +1,4 @@
-class Negociacao {
+export class Negociacao {
     constructor(data, valor, quantidade) {
         this._data = new Date(data.getTime())
         this._valor = valor
